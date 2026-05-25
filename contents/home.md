@@ -1,17 +1,16 @@
 
-
-[![senli1073](https://img.shields.io/badge/senli1073-github-blue?logo=github)](https://github.com/senli1073)
-
-He is currently a Fellow in the Department of Earth and Planetary Sciences (EPS) at Harvard University.
+I am currently a ~~~.
 
 #### Contact
-
-Email: user[at]fas.harvard.edu
+Center for Combinatorics\
+Nankai University\
+94 Weijin Road, Tianjin 300071, P.R. China\
+Email: haojunbai@mail.nankai.edu.cn
 
 #### Education
-M.E., Computer Science and Technology, China University of Mining and Technology, 2022—2025.\
-B.E., Data Science and Big Data Technology, China University of Mining and Technology, 2018—2022.
+2021-2025: B.S. in Mathematics, Nankai University.\
+2025-Present: M.S.in Mathematics, Nankai University.
 
 #### Research Interests
-Machine Learning for Seismology; Foundation Model; Observational Seismology; Microseismic Monitoring
+Schubert Caculus,Symmetric Function.
 
