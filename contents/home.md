@@ -1,4 +1,4 @@
-My name is Haojun Bai (白皓君), and I am currently a first-year postgraduate student at the Center for Combinatorics, Nankai University, P.R. China. I am under the supervision of Professor [Peter L. Guo](https://peter-guo.com/).
+My name is Haojun Bai (白浩君), and I am currently a first-year postgraduate student at the Center for Combinatorics, Nankai University, P.R. China. I am under the supervision of Professor [Peter L. Guo](https://peter-guo.com/).
 
 #### Contact
 Center for Combinatorics\
