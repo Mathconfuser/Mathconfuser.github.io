@@ -235,6 +235,7 @@ function showPage(id = currentPageId()) {
     });
 
     document.body.classList.toggle('home-page-active', id === 'home');
+    document.body.classList.toggle('inner-page-active', id !== 'home');
 
     const page = pageSections.find(section => section.id === id);
     if (page) {
