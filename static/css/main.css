@@ -95,8 +95,8 @@ a:hover {
 
 .top-section {
     position: relative;
-    min-height: 18rem;
-    padding: 7.8rem 0 2.15rem;
+    min-height: 17rem;
+    padding: 7.25rem 0 1.4rem;
     overflow: hidden;
     background: transparent !important;
 }
@@ -113,6 +113,13 @@ a:hover {
 .top-section .top-section-content {
     position: relative;
     z-index: 1;
+}
+
+.top-section .container {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) clamp(126px, 14vw, 168px);
+    align-items: start;
+    gap: clamp(2rem, 7vw, 5.5rem);
 }
 
 .top-section h2 {
@@ -158,12 +165,11 @@ body.inner-page-active .top-section::before {
 
 #avatar {
     display: none;
-    position: relative;
-    z-index: 5;
+    position: static;
     height: auto;
-    margin-right: 1.5rem;
-    float: right;
-    transform: translateY(-96px);
+    margin: 0;
+    float: none;
+    transform: translateY(2rem);
 }
 
 body.home-page-active #avatar {
@@ -181,7 +187,6 @@ body.home-page-active #avatar {
 
 main {
     min-height: 31rem;
-    clear: both;
 }
 
 aside,
@@ -191,7 +196,7 @@ section {
 }
 
 body.home-page-active .page-section {
-    padding-top: 1.55rem;
+    padding-top: 0.85rem;
 }
 
 .page-section {
@@ -449,14 +454,18 @@ body[data-template="sidebar"] {
     }
 
     .top-section {
-        min-height: 17rem;
+        min-height: 15.5rem;
         padding-top: 7rem;
+    }
+
+    .top-section .container {
+        display: block;
     }
 
     #avatar {
         margin: 0;
         float: none;
-        transform: translateY(-30px);
+        transform: translateY(0.75rem);
     }
 
     .page-section .container {
@@ -489,7 +498,7 @@ body[data-template="sidebar"] {
     }
 
     .top-section {
-        min-height: 16rem;
+        min-height: 15.2rem;
         padding-top: 6.4rem;
         padding-bottom: 1.8rem;
     }
