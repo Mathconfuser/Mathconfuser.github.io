@@ -234,6 +234,8 @@ function showPage(id = currentPageId()) {
         link.classList.toggle('active', link.dataset.page === id);
     });
 
+    document.body.classList.toggle('home-page-active', id === 'home');
+
     const page = pageSections.find(section => section.id === id);
     if (page) {
         document.title = `${page.title} | ${document.getElementById('page-top-title').textContent || 'Homepage'}`;

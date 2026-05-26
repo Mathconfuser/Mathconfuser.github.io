@@ -146,12 +146,17 @@ a:hover {
 }
 
 #avatar {
+    display: none;
     position: relative;
     z-index: 5;
     height: auto;
     margin-right: 1.5rem;
     float: right;
     transform: translateY(-48px);
+}
+
+body.home-page-active #avatar {
+    display: block;
 }
 
 #avatar img {
