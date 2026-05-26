@@ -2,7 +2,7 @@ title: Haojun Bai's Homepage
 page-top-title: Haojun Bai
 top-section-bg-text: Algebraic Combinatorics
 home-subtitle: Haojun Bai&nbsp;|&nbsp;白浩君
-copyright-text: '&copy; Haojun Bai'
+copyright-text: ''
 
 # Choose one template: minimal, atelier, classic, paper, sidebar.
 template: minimal
@@ -20,10 +20,10 @@ sections:
     title: Home
     file: home.md
     icon: bi-person-lines-fill
-  - id: publications
-    label: PUBLICATIONS
-    title: Publications
-    file: publications.md
+  - id: research
+    label: RESEARCH
+    title: research
+    file: research.md
     icon: bi-file-text-fill
   - id: awards
     label: AWARDS
