@@ -25,8 +25,8 @@ sections:
     title: research
     file: research.md
     icon: bi-file-text-fill
-  - id: awards
-    label: AWARDS
-    title: Awards
-    file: awards.md
-    icon: bi-award-fill
+  #- id: awards
+     #label: AWARDS
+     #title: Awards
+     #file: awards.md
+     #icon: bi-award-fill
