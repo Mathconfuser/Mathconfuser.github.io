@@ -257,6 +257,14 @@ function setupNavbarCollapse() {
     });
 }
 
+function setupPublicationInteractions() {
+    document.addEventListener('click', event => {
+        if (event.target.closest('.publication-link')) {
+            event.stopPropagation();
+        }
+    });
+}
+
 window.addEventListener('DOMContentLoaded', () => {
     fetch(contentDir + configFile)
         .then(response => response.text())
@@ -270,6 +278,7 @@ window.addEventListener('DOMContentLoaded', () => {
             renderNavigation(pageSections);
             renderSectionShells(pageSections);
             setupNavbarCollapse();
+            setupPublicationInteractions();
             loadMarkdownSections(pageSections);
             showPage();
         })
