@@ -4,12 +4,13 @@ top-section-bg-text: Algebraic Combinatorics
 home-subtitle: Haojun Bai&nbsp;|&nbsp;白浩君
 copyright-text: '&copy; Haojun Bai'
 
-# Choose one template: atelier, classic, paper, sidebar.
-template: atelier
+# Choose one template: minimal, atelier, classic, paper, sidebar.
+template: minimal
+
+last-updated: 'Last updated: 2026-05-26'
 
 # Images can use a full path or just a filename in static/assets/img/.
 profile-photo: photo.jpeg
-hero-image: background.jpeg
 favicon: static/assets/favicon.jpeg
 
 # To add a new menu item, add an entry here and create the matching Markdown file.

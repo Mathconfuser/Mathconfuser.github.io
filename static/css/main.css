@@ -1,17 +1,15 @@
 @import "./styles.css";
 
 :root {
-    --page-bg: #f7f8f4;
+    --page-bg: #fbfbf8;
     --paper: #ffffff;
-    --ink: #202624;
-    --muted: #66706b;
-    --line: #d9e0da;
-    --accent: #1f6f64;
-    --accent-2: #a04f3f;
-    --soft: #eef3ef;
-    --nav-bg: rgba(247, 248, 244, 0.88);
-    --footer-bg: #233530;
-    --hero-overlay: linear-gradient(90deg, rgba(247, 248, 244, 0.94) 0%, rgba(247, 248, 244, 0.82) 39%, rgba(32, 38, 36, 0.36) 100%);
+    --ink: #202420;
+    --muted: #6a716c;
+    --line: #dfe4df;
+    --accent: #256c61;
+    --accent-2: #9a594a;
+    --nav-bg: rgba(251, 251, 248, 0.92);
+    --footer-bg: #25342f;
 }
 
 html {
@@ -21,8 +19,8 @@ html {
 body {
     min-height: 100vh;
     background:
-        linear-gradient(90deg, rgba(31, 111, 100, 0.055) 1px, transparent 1px) 0 0 / 5.25rem 5.25rem,
-        linear-gradient(180deg, #fbfcf9 0%, var(--page-bg) 28rem, #ffffff 100%);
+        linear-gradient(90deg, rgba(37, 108, 97, 0.045) 1px, transparent 1px) 0 0 / 5.5rem 5.5rem,
+        linear-gradient(180deg, #ffffff 0%, var(--page-bg) 22rem, #ffffff 100%);
     color: var(--ink);
     letter-spacing: 0;
 }
@@ -38,14 +36,14 @@ a:hover {
 }
 
 .container {
-    max-width: 1060px;
+    max-width: 1120px;
 }
 
 .header {
     z-index: 10000;
-    border-bottom: 1px solid color-mix(in srgb, var(--line) 88%, transparent);
+    border-bottom: 1px solid var(--line);
     background: var(--nav-bg) !important;
-    backdrop-filter: blur(18px);
+    backdrop-filter: blur(16px);
 }
 
 #mainNav {
@@ -54,7 +52,6 @@ a:hover {
 }
 
 #mainNav .navbar-brand {
-    position: relative;
     color: var(--ink);
     font-family: Georgia, "Times New Roman", serif;
     font-size: 1.12rem;
@@ -98,30 +95,19 @@ a:hover {
 
 .top-section {
     position: relative;
-    min-height: 25rem;
-    height: 50vh;
-    max-height: 34rem;
-    padding: 9.25rem 0 4.5rem;
+    min-height: 18rem;
+    padding: 8.6rem 0 3rem;
     overflow: hidden;
-    background-position: center;
-    background-size: cover;
+    background: transparent !important;
 }
 
 .top-section::before {
     content: "";
     position: absolute;
-    inset: 0;
-    background: var(--hero-overlay);
-}
-
-.top-section::after {
-    content: "";
-    position: absolute;
-    right: max(2rem, calc((100vw - 1060px) / 2));
-    bottom: 3.6rem;
-    width: min(30vw, 18rem);
+    inset: auto max(1.2rem, calc((100vw - 1120px) / 2)) 2.1rem auto;
+    width: min(42vw, 26rem);
     height: 1px;
-    background: rgba(255, 255, 255, 0.72);
+    background: var(--line);
 }
 
 .top-section .top-section-content {
@@ -130,28 +116,33 @@ a:hover {
 }
 
 .top-section h2 {
-    max-width: 760px;
+    max-width: 780px;
     margin: 0;
     color: var(--ink) !important;
     font-family: Georgia, "Times New Roman", serif !important;
-    font-size: clamp(2.35rem, 6.2vw, 5.2rem);
+    font-size: clamp(2.25rem, 5.6vw, 4.8rem);
     font-weight: 600;
-    line-height: 0.96;
+    line-height: 0.98;
     letter-spacing: 0;
     text-wrap: balance;
-    text-shadow: none;
 }
 
 .top-section h2::before {
     content: "Research";
     display: block;
-    margin-bottom: 0.85rem;
+    margin-bottom: 0.8rem;
     color: var(--accent-2);
     font-family: Mulish, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-    font-size: 0.78rem;
+    font-size: 0.76rem;
     font-weight: 800;
     letter-spacing: 0.14em;
     text-transform: uppercase;
+}
+
+.top-section-subtitle {
+    margin-top: 1.25rem;
+    color: var(--muted);
+    font-size: 1.02rem;
 }
 
 #avatar {
@@ -160,42 +151,40 @@ a:hover {
     height: 0;
     margin-right: 1.5rem;
     float: right;
-    transform: translateY(-112px);
-}
-
-#avatar::before {
-    content: "";
-    position: absolute;
-    inset: -14px;
-    z-index: -1;
-    border: 1px solid rgba(255, 255, 255, 0.72);
-    background: rgba(255, 255, 255, 0.34);
-    backdrop-filter: blur(12px);
+    transform: translateY(-78px);
 }
 
 #avatar img {
-    width: clamp(136px, 17vw, 198px);
-    height: clamp(136px, 17vw, 198px);
+    width: clamp(126px, 14vw, 168px);
+    height: clamp(126px, 14vw, 168px);
     object-fit: cover;
-    border: 6px solid rgba(255, 255, 255, 0.95);
-    border-radius: 4px;
-    box-shadow: 0 24px 54px rgba(25, 38, 34, 0.2);
+    border: 5px solid #fff;
+    border-radius: 6px;
+    box-shadow: 0 20px 44px rgba(25, 38, 34, 0.16);
+}
+
+main {
+    min-height: 31rem;
 }
 
 aside,
 section {
-    padding-top: 4.35rem;
-    padding-bottom: 4.65rem;
+    padding-top: 3.8rem;
+    padding-bottom: 4.4rem;
 }
 
-#home {
-    padding-top: 5.2rem;
+.page-section {
+    display: none;
 }
 
-section .container {
+.page-section.active {
+    display: block;
+}
+
+.page-section .container {
     display: grid;
-    grid-template-columns: minmax(9rem, 14rem) minmax(0, 1fr);
-    gap: clamp(1.8rem, 5vw, 4.4rem);
+    grid-template-columns: minmax(8rem, 12rem) minmax(0, 1fr);
+    gap: clamp(1.7rem, 4vw, 3.8rem);
 }
 
 section header h2 {
@@ -205,7 +194,7 @@ section header h2 {
     margin: 0;
     color: var(--accent);
     font-family: Georgia, "Times New Roman", serif !important;
-    font-size: clamp(1.35rem, 2.5vw, 1.85rem);
+    font-size: clamp(1.28rem, 2.2vw, 1.72rem);
     line-height: 1.08;
     letter-spacing: 0;
 }
@@ -213,33 +202,33 @@ section header h2 {
 section header h2::after {
     content: "";
     display: block;
-    width: 2.2rem;
+    width: 2rem;
     height: 2px;
-    margin-top: 1rem;
+    margin-top: 0.9rem;
     background: var(--accent-2);
 }
 
 section header h2 i {
     display: block;
-    margin-bottom: 0.55rem;
+    margin-bottom: 0.5rem;
     color: var(--accent-2);
-    font-size: 1.05rem;
+    font-size: 1rem;
 }
 
 section .main-body {
-    max-width: 780px;
+    max-width: 860px;
     color: var(--ink);
     font-size: 1.06rem;
     font-weight: 400;
-    line-height: 1.8;
+    line-height: 1.78;
 }
 
 .main-body h1,
 .main-body h2,
 .main-body h3,
 .main-body h4 {
-    margin-top: 1.75rem;
-    margin-bottom: 0.7rem;
+    margin-top: 1.72rem;
+    margin-bottom: 0.72rem;
     color: var(--ink);
     font-family: Georgia, "Times New Roman", serif;
     letter-spacing: 0;
@@ -270,21 +259,11 @@ section .main-body {
 
 .main-body img {
     display: block;
-    max-width: min(100%, 760px);
+    max-width: min(100%, 820px);
     height: auto;
     margin: 1.35rem 0;
-    border-radius: 4px;
+    border-radius: 6px;
     box-shadow: 0 14px 34px rgba(30, 42, 50, 0.12);
-}
-
-.bg-gradient-primary-to-secondary-light {
-    background: rgba(255, 255, 255, 0.68) !important;
-}
-
-.bg-gradient-primary-to-secondary-gray {
-    border-top: 1px solid var(--line);
-    border-bottom: 1px solid var(--line);
-    background: rgba(238, 243, 239, 0.72) !important;
 }
 
 .bg-bottom {
@@ -307,166 +286,55 @@ footer a:focus {
     text-decoration: underline;
 }
 
-body[data-template="atelier"] {
-    --page-bg: #f7f8f4;
-    --paper: #ffffff;
-    --ink: #202624;
-    --muted: #66706b;
-    --line: #d9e0da;
-    --accent: #1f6f64;
-    --accent-2: #a04f3f;
-    --soft: #eef3ef;
-    --nav-bg: rgba(247, 248, 244, 0.88);
-    --footer-bg: #233530;
-    --hero-overlay: linear-gradient(90deg, rgba(247, 248, 244, 0.94) 0%, rgba(247, 248, 244, 0.82) 39%, rgba(32, 38, 36, 0.36) 100%);
+.last-updated {
+    position: fixed;
+    right: 1.1rem;
+    bottom: 0.9rem;
+    z-index: 9999;
+    padding: 0.34rem 0.58rem;
+    border: 1px solid rgba(37, 108, 97, 0.16);
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.78);
+    color: var(--muted);
+    font-size: 0.76rem;
+    line-height: 1;
+    backdrop-filter: blur(12px);
+    box-shadow: 0 8px 22px rgba(25, 38, 34, 0.08);
 }
 
-body[data-template="classic"] {
-    --page-bg: #ffffff;
-    --paper: #ffffff;
-    --ink: #20242a;
-    --muted: #626b75;
-    --line: #dbe2e8;
-    --accent: #2f6f8f;
-    --accent-2: #b65f43;
-    --soft: #f5f8fa;
-    --nav-bg: rgba(255, 255, 255, 0.94);
-    --footer-bg: #263943;
-    --hero-overlay: linear-gradient(90deg, rgba(18, 47, 58, 0.72), rgba(18, 47, 58, 0.18));
-}
-
-body[data-template="classic"] {
-    background: #fff;
-}
-
-body[data-template="classic"] .top-section h2 {
-    color: #fff !important;
-    text-shadow: 0 2px 18px rgba(0, 0, 0, 0.22);
-}
-
-body[data-template="classic"] .top-section h2::before {
-    color: rgba(255, 255, 255, 0.78);
-}
-
-body[data-template="classic"] section .container,
-body[data-template="paper"] section .container {
-    display: block;
-}
-
-body[data-template="classic"] section header h2,
-body[data-template="paper"] section header h2 {
-    position: static;
-    display: flex;
-    align-items: center;
-    gap: 0.55rem;
-    margin-bottom: 1.45rem;
-}
-
-body[data-template="classic"] section header h2::after,
-body[data-template="paper"] section header h2::after {
-    display: none;
-}
-
-body[data-template="classic"] section header h2 i,
-body[data-template="paper"] section header h2 i {
-    display: inline-block;
-    margin-bottom: 0;
-}
-
-body[data-template="paper"] {
-    --page-bg: #fbfaf6;
-    --paper: #fbfaf6;
-    --ink: #24211d;
-    --muted: #6d675f;
-    --line: #ded8cd;
-    --accent: #6a7f38;
-    --accent-2: #a55345;
-    --soft: #f2efe8;
-    --nav-bg: rgba(251, 250, 246, 0.94);
-    --footer-bg: #3f4632;
-    --hero-overlay: linear-gradient(90deg, rgba(48, 54, 42, 0.68), rgba(48, 54, 42, 0.12));
-    background: #fbfaf6;
-}
-
-body[data-template="paper"] .top-section {
-    min-height: 20rem;
-    height: 36vh;
-}
-
-body[data-template="paper"] .top-section h2 {
-    color: #fff !important;
-    text-shadow: 0 2px 18px rgba(0, 0, 0, 0.22);
-}
-
-body[data-template="paper"] .top-section h2::before {
-    color: rgba(255, 255, 255, 0.78);
-}
-
-body[data-template="paper"] #avatar img {
-    border-radius: 50%;
-}
-
+body[data-template="minimal"],
+body[data-template="atelier"],
+body[data-template="classic"],
+body[data-template="paper"],
 body[data-template="sidebar"] {
-    --page-bg: #f7f8f4;
+    --page-bg: #fbfbf8;
     --paper: #ffffff;
-    --ink: #1f2826;
-    --muted: #64706c;
-    --line: #d6dfd7;
-    --accent: #2f755c;
-    --accent-2: #9d5b38;
-    --soft: #edf4f1;
-    --nav-bg: rgba(255, 255, 255, 0.96);
-    --footer-bg: #233c35;
-    --hero-overlay: linear-gradient(90deg, rgba(16, 44, 36, 0.78), rgba(16, 44, 36, 0.22));
-}
-
-body[data-template="sidebar"] .top-section {
-    min-height: 24rem;
-    height: 46vh;
-}
-
-body[data-template="sidebar"] .top-section h2 {
-    color: #fff !important;
-    text-shadow: 0 2px 18px rgba(0, 0, 0, 0.22);
-}
-
-body[data-template="sidebar"] .top-section h2::before {
-    color: rgba(255, 255, 255, 0.78);
-}
-
-body[data-template="sidebar"] #avatar {
-    float: left;
-    margin-left: 1.5rem;
-    margin-right: 0;
-}
-
-body[data-template="sidebar"] section .main-body,
-body[data-template="sidebar"] section header h2 {
-    margin-left: 0;
+    --ink: #202420;
+    --muted: #6a716c;
+    --line: #dfe4df;
+    --accent: #256c61;
+    --accent-2: #9a594a;
+    --nav-bg: rgba(251, 251, 248, 0.92);
+    --footer-bg: #25342f;
 }
 
 @media screen and (max-width: 991px) {
     .container {
-        max-width: 760px;
+        max-width: 820px;
     }
 
     .top-section {
-        min-height: 23rem;
-        height: 44vh;
+        min-height: 17rem;
+        padding-top: 7.6rem;
     }
 
     #avatar {
         margin: 0;
         float: none;
-        transform: translateY(-76px);
+        transform: translateY(-42px);
     }
 
-    body[data-template="sidebar"] #avatar {
-        margin-left: 0;
-        float: none;
-    }
-
-    section .container {
+    .page-section .container {
         display: block;
     }
 
@@ -496,31 +364,33 @@ body[data-template="sidebar"] section header h2 {
     }
 
     .top-section {
-        min-height: 20rem;
-        height: 38vh;
-        padding-top: 7rem;
+        min-height: 16rem;
+        padding-top: 6.8rem;
+        padding-bottom: 2.4rem;
     }
 
-    .top-section::after {
+    .top-section::before {
         display: none;
     }
 
     #avatar img {
-        width: 128px;
-        height: 128px;
+        width: 118px;
+        height: 118px;
     }
 
     aside,
     section {
-        padding-top: 3.15rem;
-        padding-bottom: 3.35rem;
-    }
-
-    #home {
-        padding-top: 4.2rem;
+        padding-top: 3rem;
+        padding-bottom: 3.25rem;
     }
 
     section .main-body {
         font-size: 1rem;
+    }
+
+    .last-updated {
+        right: 0.75rem;
+        bottom: 0.65rem;
+        font-size: 0.7rem;
     }
 }

@@ -8,12 +8,14 @@ const defaultSections = [
 ];
 
 const defaultConfig = {
-    template: 'atelier',
+    template: 'minimal',
     'profile-photo': 'static/assets/img/photo.jpeg',
-    'hero-image': 'static/assets/img/background.jpeg',
     favicon: 'static/assets/favicon.jpeg',
+    'last-updated': 'Last updated: 2026-05-26',
     sections: defaultSections,
 };
+
+let pageSections = defaultSections;
 
 function escapeHtml(value = '') {
     return String(value)
@@ -67,11 +69,6 @@ function applyConfig(config) {
         if (titleElement) titleElement.innerHTML = titleText;
     }
 
-    const heroImage = document.querySelector('.top-section');
-    if (heroImage && config['hero-image']) {
-        heroImage.style.backgroundImage = `url('${normalizeImagePath(config['hero-image'])}')`;
-    }
-
     const profilePhoto = document.getElementById('profile-photo');
     if (profilePhoto && config['profile-photo']) {
         profilePhoto.src = normalizeImagePath(config['profile-photo']);
@@ -93,7 +90,8 @@ function renderNavigation(sections) {
 
         const anchor = document.createElement('a');
         anchor.className = 'nav-link me-lg-3';
-        anchor.href = section.id === 'home' ? '#page-top' : `#${section.id}`;
+        anchor.href = `#${section.id}`;
+        anchor.dataset.page = section.id;
         anchor.textContent = section.label;
 
         li.appendChild(anchor);
@@ -105,12 +103,11 @@ function renderSectionShells(sections) {
     const root = document.getElementById('sections-root');
     root.innerHTML = '';
 
-    sections.forEach((section, index) => {
+    sections.forEach(section => {
         const wrapper = document.createElement('section');
-        wrapper.className = index % 2 === 0
-            ? 'bg-gradient-primary-to-secondary-light mt5 md5'
-            : 'bg-gradient-primary-to-secondary-gray mt5 md5';
+        wrapper.className = 'page-section';
         wrapper.id = section.id;
+        wrapper.dataset.page = section.id;
 
         const container = document.createElement('div');
         container.className = 'container px-5';
@@ -197,14 +194,8 @@ function ensureMathJax() {
 }
 
 function typesetMath() {
-    if (window.MathJax && MathJax.typesetPromise) {
-        return MathJax.typesetPromise();
-    }
-
-    if (window.MathJax && MathJax.typeset) {
-        MathJax.typeset();
-    }
-
+    if (window.MathJax && MathJax.typesetPromise) return MathJax.typesetPromise();
+    if (window.MathJax && MathJax.typeset) MathJax.typeset();
     return Promise.resolve();
 }
 
@@ -229,6 +220,28 @@ function loadMarkdownSections(sections) {
     });
 }
 
+function currentPageId() {
+    const id = window.location.hash.replace('#', '');
+    return pageSections.some(section => section.id === id) ? id : pageSections[0].id;
+}
+
+function showPage(id = currentPageId()) {
+    document.querySelectorAll('.page-section').forEach(section => {
+        section.classList.toggle('active', section.dataset.page === id);
+    });
+
+    document.querySelectorAll('#section-nav .nav-link').forEach(link => {
+        link.classList.toggle('active', link.dataset.page === id);
+    });
+
+    const page = pageSections.find(section => section.id === id);
+    if (page) {
+        document.title = `${page.title} | ${document.getElementById('page-top-title').textContent || 'Homepage'}`;
+    }
+
+    window.scrollTo({ top: 0, behavior: 'instant' });
+}
+
 function setupNavbarCollapse() {
     const navbarToggler = document.body.querySelector('.navbar-toggler');
     const responsiveNavItems = [].slice.call(
@@ -244,31 +257,23 @@ function setupNavbarCollapse() {
     });
 }
 
-function setupScrollSpy() {
-    const mainNav = document.body.querySelector('#mainNav');
-    if (mainNav) {
-        new bootstrap.ScrollSpy(document.body, {
-            target: '#mainNav',
-            offset: 74,
-        });
-    }
-}
-
 window.addEventListener('DOMContentLoaded', () => {
     fetch(contentDir + configFile)
         .then(response => response.text())
         .then(text => {
             const userConfig = jsyaml.load(text) || {};
             const config = { ...defaultConfig, ...userConfig };
-            const sections = (config.sections || defaultSections).map(sectionFromConfig);
+            pageSections = (config.sections || defaultSections).map(sectionFromConfig);
 
             applyConfig(config);
             setupMarkdown();
-            renderNavigation(sections);
-            renderSectionShells(sections);
+            renderNavigation(pageSections);
+            renderSectionShells(pageSections);
             setupNavbarCollapse();
-            setupScrollSpy();
-            loadMarkdownSections(sections);
+            loadMarkdownSections(pageSections);
+            showPage();
         })
         .catch(error => console.log(error));
 });
+
+window.addEventListener('hashchange', () => showPage());

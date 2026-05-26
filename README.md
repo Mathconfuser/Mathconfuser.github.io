@@ -7,15 +7,18 @@ This is a lightweight GitHub Pages academic homepage. The page content is writte
 Change the `template` value in `contents/config.yml`:
 
 ```yaml
-template: atelier
+template: minimal
 ```
 
 Available choices:
 
+- `minimal`: current default, a clean paged academic layout without a background image.
 - `atelier`: more designed editorial style with a quieter image treatment, side headings, and a refined research-note feel.
 - `classic`: clean academic style with a strong hero image and right-side profile photo.
 - `paper`: warmer paper-like style with a round profile photo.
 - `sidebar`: modern layout with the profile photo on the left and wider reading space.
+
+The top navigation works like lightweight pages: `#home`, `#publications`, `#awards`, etc. Only one page is shown at a time.
 
 ## Edit Content
 
@@ -46,6 +49,31 @@ The `id` becomes the page anchor, the `label` appears in the top menu, the `titl
 
 Bootstrap Icons can be used for `icon`: https://icons.getbootstrap.com/
 
+## Remove a Page
+
+To remove a page from the website:
+
+1. Delete or comment out its entry under `sections` in `contents/config.yml`.
+2. Optionally delete the matching Markdown file from `contents/`.
+
+For example, to remove `AWARDS`, remove this block:
+
+```yaml
+  - id: awards
+    label: AWARDS
+    title: Awards
+    file: awards.md
+    icon: bi-award-fill
+```
+
+## Last Updated
+
+Edit this line in `contents/config.yml`:
+
+```yaml
+last-updated: 'Last updated: 2026-05-26'
+```
+
 ## Images
 
 Put uploaded images in:
@@ -54,11 +82,10 @@ Put uploaded images in:
 static/assets/img/
 ```
 
-In `contents/config.yml`, the profile and hero images can be written as either full paths or simple filenames:
+In `contents/config.yml`, the profile image can be written as either a full path or a simple filename:
 
 ```yaml
 profile-photo: photo.jpeg
-hero-image: background.jpeg
 ```
 
 In Markdown files, both of these work:
