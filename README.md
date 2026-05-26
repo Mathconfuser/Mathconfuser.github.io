@@ -7,11 +7,12 @@ This is a lightweight GitHub Pages academic homepage. The page content is writte
 Change the `template` value in `contents/config.yml`:
 
 ```yaml
-template: classic
+template: atelier
 ```
 
 Available choices:
 
+- `atelier`: more designed editorial style with a quieter image treatment, side headings, and a refined research-note feel.
 - `classic`: clean academic style with a strong hero image and right-side profile photo.
 - `paper`: warmer paper-like style with a round profile photo.
 - `sidebar`: modern layout with the profile photo on the left and wider reading space.

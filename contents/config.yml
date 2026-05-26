@@ -4,9 +4,8 @@ top-section-bg-text: Algebraic Combinatorics
 home-subtitle: Haojun Bai&nbsp;|&nbsp;白浩君
 copyright-text: '&copy; Haojun Bai'
 
-# Choose one template: classic, paper, sidebar.
-template: paper
-
+# Choose one template: atelier, classic, paper, sidebar.
+template: atelier
 
 # Images can use a full path or just a filename in static/assets/img/.
 profile-photo: photo.jpeg

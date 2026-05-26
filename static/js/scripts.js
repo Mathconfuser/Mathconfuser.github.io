@@ -8,7 +8,7 @@ const defaultSections = [
 ];
 
 const defaultConfig = {
-    template: 'classic',
+    template: 'atelier',
     'profile-photo': 'static/assets/img/photo.jpeg',
     'hero-image': 'static/assets/img/background.jpeg',
     favicon: 'static/assets/favicon.jpeg',
