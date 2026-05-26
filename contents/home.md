@@ -12,4 +12,4 @@ Email: haojunbai@mail.nankai.edu.cn
 2025-Present: M.S. in Mathematics, Nankai University.
 
 #### Research Interests
-Schubert calculus, symmetric functions.
+Schubert calculus, Symmetric functions, Coxeter group.
