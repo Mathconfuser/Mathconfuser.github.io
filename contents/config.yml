@@ -5,7 +5,8 @@ home-subtitle: Haojun Bai&nbsp;|&nbsp;白浩君
 copyright-text: '&copy; Haojun Bai'
 
 # Choose one template: classic, paper, sidebar.
-template: classic
+template: paper
+
 
 # Images can use a full path or just a filename in static/assets/img/.
 profile-photo: photo.jpeg
