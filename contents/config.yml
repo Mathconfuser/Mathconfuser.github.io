@@ -1,5 +1,31 @@
 title: Haojun Bai's Homepage
 page-top-title: Haojun Bai
-top-section-bg-text:  Algebraic combinatorics
-home-subtitle: Haojun Bai&ensp;|&ensp;白浩君
-copyright-text: ' ~~~'
+top-section-bg-text: Algebraic Combinatorics
+home-subtitle: Haojun Bai&nbsp;|&nbsp;白皓君
+copyright-text: '&copy; Haojun Bai'
+
+# Choose one template: classic, paper, sidebar.
+template: classic
+
+# Images can use a full path or just a filename in static/assets/img/.
+profile-photo: photo.jpeg
+hero-image: background.jpeg
+favicon: static/assets/favicon.jpeg
+
+# To add a new menu item, add an entry here and create the matching Markdown file.
+sections:
+  - id: home
+    label: HOME
+    title: Home
+    file: home.md
+    icon: bi-person-lines-fill
+  - id: publications
+    label: PUBLICATIONS
+    title: Publications
+    file: publications.md
+    icon: bi-file-text-fill
+  - id: awards
+    label: AWARDS
+    title: Awards
+    file: awards.md
+    icon: bi-award-fill

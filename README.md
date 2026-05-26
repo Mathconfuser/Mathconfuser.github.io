@@ -1,76 +1,78 @@
+# Haojun Bai Academic Homepage
 
+This is a lightweight GitHub Pages academic homepage. The page content is written in Markdown under `contents/`, while the menu, images, and visual template are controlled by `contents/config.yml`.
 
-![Github Forks](https://img.shields.io/github/forks/senli1073/academic-homepage-template?style=flat)
-![Github Stars](https://img.shields.io/github/stars/senli1073/academic-homepage-template?style=flat)
-![License](https://img.shields.io/github/license/senli1073/academic-homepage-template)
-![Last Commit](https://img.shields.io/github/last-commit/senli1073/academic-homepage-template)
+## Available Templates
 
-# A simple Github Pages template for personal academic websites.
+Change the `template` value in `contents/config.yml`:
 
-## Preview
-[![Screenshot of the Website](https://raw.githubusercontent.com/senli1073/academic-homepage-template/main/screenshot_full.png)](https://senli1073.github.io/)
-
-
-## Introduction
-
-This personal academic website template is based on [startbootstrap](https://github.com/StartBootstrap/startbootstrap-new-age).
-
-The template is designed to integrate Markdown files as content input.  There's no need to compile the webpage before deployment.  Upon loading, the Markdown files are automatically parsed and embedded into the page.
-
-This template supports LaTeX formula input. You can use `$...$` and `\(...\)` as delimiters for inline-math, or use `$$...$$` and `\[...\]` as delimiters for display-math. Macros such as `\ref{...}`, `\eqref{...}`, and `\begin{equation}...\end{equation}` are also supported. See [MathJax](https://docs.mathjax.org/en/latest/index.html) for more details.
-
-:milky_way: Demo: https://senli1073.github.io/
-
-
-## Getting Start
-### 1. Fork this repository
-The repository name should be `<username>.github.io`, which will also be your website's URL.
-
-
-### 2. Edit page content
-
-(1) Go to the folder where you want to store your project, and clone the new repository:
-```
-git clone https://github.com/<username>/<username>.github.io.git
-```
-The directory structure is as follows:
-
-```.
-.
-├── contents
-└── static
-    ├── assets
-    │   └── img
-    ├── css
-    └── js
+```yaml
+template: classic
 ```
 
-(2) Modify the content of each section, which corresponds to `contents/*.md`.
+Available choices:
 
-(3) Adjust the title, copyright information, and other text of the website in `contents/config.yml`
+- `classic`: clean academic style with a strong hero image and right-side profile photo.
+- `paper`: warmer paper-like style with a round profile photo.
+- `sidebar`: modern layout with the profile photo on the left and wider reading space.
 
-(4) Replace background image and photo with new ones for your web pages in `static/assets/img/`
+## Edit Content
 
-(5) Push it: 
+Main content files:
+
+- `contents/home.md`
+- `contents/publications.md`
+- `contents/awards.md`
+
+You can write normal Markdown in these files. LaTeX formulas are supported with `$...$`, `\(...\)`, `$$...$$`, and `\[...\]`.
+
+## Add a New Menu Item
+
+For example, to add a `TEACHING` section:
+
+1. Create `contents/teaching.md`.
+2. Add this entry to `sections` in `contents/config.yml`:
+
+```yaml
+  - id: teaching
+    label: TEACHING
+    title: Teaching
+    file: teaching.md
+    icon: bi-easel-fill
 ```
-git commit -am 'init'
-git push
+
+The `id` becomes the page anchor, the `label` appears in the top menu, the `title` appears as the section heading, and the `file` points to the Markdown file.
+
+Bootstrap Icons can be used for `icon`: https://icons.getbootstrap.com/
+
+## Images
+
+Put uploaded images in:
+
+```text
+static/assets/img/
 ```
 
-### 3. Setup
-(1) Under your repository name, click `Settings`.
+In `contents/config.yml`, the profile and hero images can be written as either full paths or simple filenames:
 
-(2) In the "Code and automation" section of the sidebar, click `Pages`.
+```yaml
+profile-photo: photo.jpeg
+hero-image: background.jpeg
+```
 
-(3) Under "Build and deployment", under "Source", select Deploy from a branch. Then, use the branch dropdown menu and select a publishing source.
+In Markdown files, both of these work:
 
-### 4. Enjoy
+```markdown
+![Description](photo.jpeg)
+![Description](static/assets/img/photo.jpeg)
+```
 
-Fire up a browser and go to `https://<username>.github.io`
+If you only write the filename, the page will automatically look for it in `static/assets/img/`.
 
-> Note that it can take up to 10 minutes for changes to your site to publish after you push the changes to GitHub.
+## Deploy
 
+For GitHub Pages, push the repository to a branch enabled under repository `Settings -> Pages`. The website will usually update within a few minutes after pushing.
 
 ## License
 
-Copyright Sen Li, 2023-2025. Licensed under an MIT license. You can copy and mess with this template.
+Based on the original academic homepage template by Sen Li, licensed under the MIT License.
