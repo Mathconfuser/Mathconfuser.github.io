@@ -177,10 +177,10 @@ body.home-page-active #avatar {
 }
 
 #avatar img {
-    width: clamp(126px, 14vw, 168px);
-    height: clamp(126px, 14vw, 168px);
-    object-fit: contain;
-    background: #fff;
+    width: auto;
+    max-width: clamp(126px, 14vw, 168px);
+    max-height: clamp(150px, 18vw, 220px);
+    height: auto;
     border: 5px solid #fff;
     border-radius: 6px;
     box-shadow: 0 20px 44px rgba(25, 38, 34, 0.16);
@@ -509,8 +509,8 @@ body[data-template="sidebar"] {
     }
 
     #avatar img {
-        width: 118px;
-        height: 118px;
+        max-width: 118px;
+        max-height: 154px;
     }
 
     aside,
