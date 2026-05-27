@@ -179,7 +179,8 @@ body.home-page-active #avatar {
 #avatar img {
     width: clamp(126px, 14vw, 168px);
     height: clamp(126px, 14vw, 168px);
-    object-fit: cover;
+    object-fit: contain;
+    background: #fff;
     border: 5px solid #fff;
     border-radius: 6px;
     box-shadow: 0 20px 44px rgba(25, 38, 34, 0.16);
