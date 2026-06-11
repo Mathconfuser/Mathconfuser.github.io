@@ -11,7 +11,12 @@ const defaultConfig = {
     template: 'minimal',
     'profile-photo': 'static/assets/img/photo.jpeg',
     favicon: 'static/assets/favicon.jpeg',
-    'last-updated': 'Last updated: 2026-05-26',
+    'last-updated': 'auto',
+    'last-updated-fallback': 'Last updated: 2026-05-26',
+    'last-updated-timezone': 'Asia/Shanghai',
+    'github-owner': 'Mathconfuser',
+    'github-repo': 'Mathconfuser.github.io',
+    'github-branch': 'main',
     sections: defaultSections,
 };
 
@@ -55,7 +60,7 @@ function sectionFromConfig(section) {
 function applyConfig(config) {
     Object.keys(config).forEach(key => {
         const element = document.getElementById(key);
-        if (element && typeof config[key] !== 'object') {
+        if (element && key !== 'last-updated' && typeof config[key] !== 'object') {
             element.innerHTML = config[key];
         }
     });
@@ -78,6 +83,56 @@ function applyConfig(config) {
     if (favicon && config.favicon) {
         favicon.href = normalizeImagePath(config.favicon);
     }
+}
+
+function formatDate(dateValue, timeZone = 'Asia/Shanghai') {
+    const date = new Date(dateValue);
+    if (Number.isNaN(date.getTime())) return '';
+
+    const parts = new Intl.DateTimeFormat('en', {
+        year: 'numeric',
+        month: '2-digit',
+        day: '2-digit',
+        timeZone,
+    }).formatToParts(date);
+    const values = {};
+    parts.forEach(part => {
+        values[part.type] = part.value;
+    });
+
+    return `${values.year}-${values.month}-${values.day}`;
+}
+
+function setLastUpdated(text) {
+    const element = document.getElementById('last-updated');
+    if (element) element.textContent = text || '';
+}
+
+function updateLastUpdated(config) {
+    if (config['last-updated'] !== 'auto') {
+        setLastUpdated(config['last-updated']);
+        return;
+    }
+
+    const fallback = config['last-updated-fallback'] || '';
+    setLastUpdated(fallback);
+
+    const owner = config['github-owner'];
+    const repo = config['github-repo'];
+    const branch = config['github-branch'] || 'main';
+    if (!owner || !repo) return;
+
+    fetch(`https://api.github.com/repos/${owner}/${repo}/commits/${branch}`)
+        .then(response => {
+            if (!response.ok) throw new Error('Cannot load latest commit date');
+            return response.json();
+        })
+        .then(data => {
+            const commitDate = data && data.commit && data.commit.committer && data.commit.committer.date;
+            const formatted = formatDate(commitDate, config['last-updated-timezone']);
+            if (formatted) setLastUpdated(`Last updated: ${formatted}`);
+        })
+        .catch(error => console.log(error));
 }
 
 function renderNavigation(sections) {
@@ -277,6 +332,7 @@ window.addEventListener('DOMContentLoaded', () => {
             pageSections = (config.sections || defaultSections).map(sectionFromConfig);
 
             applyConfig(config);
+            updateLastUpdated(config);
             setupMarkdown();
             renderNavigation(pageSections);
             renderSectionShells(pageSections);

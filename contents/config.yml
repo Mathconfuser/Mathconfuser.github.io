@@ -7,7 +7,12 @@ copyright-text: ''
 # Choose one template: minimal, atelier, classic, paper, sidebar.
 template: minimal
 
-last-updated: 'Last updated: 2026-05-26'
+last-updated: auto
+last-updated-fallback: 'Last updated: 2026-05-26'
+last-updated-timezone: Asia/Shanghai
+github-owner: Mathconfuser
+github-repo: Mathconfuser.github.io
+github-branch: main
 
 # Images can use a full path or just a filename in static/assets/img/.
 profile-photo: photo.jpeg

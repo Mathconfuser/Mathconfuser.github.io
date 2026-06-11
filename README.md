@@ -68,10 +68,26 @@ For example, to remove `AWARDS`, remove this block:
 
 ## Last Updated
 
-Edit this line in `contents/config.yml`:
+By default, the site reads the latest commit date from GitHub and shows it automatically:
 
 ```yaml
-last-updated: 'Last updated: 2026-05-26'
+last-updated: auto
+github-owner: Mathconfuser
+github-repo: Mathconfuser.github.io
+github-branch: main
+last-updated-timezone: Asia/Shanghai
+```
+
+If the GitHub API cannot be reached, the site uses this fallback:
+
+```yaml
+last-updated-fallback: 'Last updated: 2026-05-26'
+```
+
+To set it manually instead, replace `auto` with fixed text:
+
+```yaml
+last-updated: 'Last updated: 2026-06-11'
 ```
 
 ## Images
