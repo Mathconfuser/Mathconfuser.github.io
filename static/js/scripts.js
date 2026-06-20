@@ -317,6 +317,21 @@ function setupNavbarCollapse() {
 
 function setupPublicationInteractions() {
     document.addEventListener('click', event => {
+        const toggle = event.target.closest('.publication-abstract-toggle');
+        if (toggle) {
+            event.preventDefault();
+            event.stopPropagation();
+
+            const item = toggle.closest('.publication-details');
+            const abstract = item && item.querySelector('.publication-abstract');
+            if (!item || !abstract) return;
+
+            const isOpen = item.classList.toggle('is-open');
+            abstract.hidden = !isOpen;
+            toggle.setAttribute('aria-expanded', String(isOpen));
+            return;
+        }
+
         if (event.target.closest('.publication-link')) {
             event.stopPropagation();
         }

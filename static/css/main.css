@@ -305,19 +305,20 @@ section .main-body {
 
 .publication-details:hover,
 .publication-details:focus-within,
-.publication-details[open] {
+.publication-details[open],
+.publication-details.is-open {
     border-color: rgba(37, 108, 97, 0.18);
     background: rgba(255, 255, 255, 0.76);
     box-shadow: 0 12px 30px rgba(25, 38, 34, 0.08);
 }
 
-.publication-details summary {
+.publication-details summary,
+.publication-summary {
     display: flex;
     align-items: flex-start;
     justify-content: space-between;
     gap: 1.2rem;
     padding: 1rem 1.05rem;
-    cursor: pointer;
     list-style: none;
 }
 
@@ -357,7 +358,8 @@ section .main-body {
 
 .publication-details:hover .publication-actions,
 .publication-details:focus-within .publication-actions,
-.publication-details[open] .publication-actions {
+.publication-details[open] .publication-actions,
+.publication-details.is-open .publication-actions {
     opacity: 1;
     transform: translateY(0);
 }
@@ -377,6 +379,11 @@ section .main-body {
     line-height: 1;
     text-decoration: none;
     text-transform: uppercase;
+    cursor: pointer;
+}
+
+button.publication-action {
+    font-family: inherit;
 }
 
 .publication-action:hover {
@@ -524,6 +531,11 @@ body[data-template="sidebar"] {
     }
 
     .publication-details summary {
+        display: block;
+        padding: 0.92rem;
+    }
+
+    .publication-summary {
         display: block;
         padding: 0.92rem;
     }
