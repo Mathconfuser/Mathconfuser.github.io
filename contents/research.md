@@ -19,3 +19,23 @@
     </div>
   </div>
 </article>
+
+<article class="publication-item">
+  <div class="publication-details">
+    <div class="publication-summary">
+      <span class="publication-main">
+        <span class="publication-title">$K$-$k$-Schur functions are $k$-Schur positive</span>
+        <span class="publication-authors">Haojun Bai,  Peter L. Guo</span>
+      </span>
+      <span class="publication-actions" aria-label="Publication actions">
+        <button type="button" class="publication-action publication-abstract-toggle" aria-expanded="false">Abstract</button>
+        <a class="publication-action publication-link" href="https://arxiv.org/abs/2610.01708" target="_blank" rel="noopener">arXiv</a>
+      </span>
+    </div>
+    <div class="publication-abstract" hidden>
+      <p>
+       The $k$-Schur functions (resp., $K$-$k$-Schur functions) are the symmetric function  representatives of Schubert classes in the homology (resp., $K$-homology) of the affine Grassmannian of type $A$. We prove  that every $K$-$k$-Schur function is a nonnegative integer linear combination in the basis of  $k$-Schur functions. This settles   a conjecture  by Lam, Schilling  and Shimozono. The proof relies  on realizations of $k$-Schur   and $K$-$k$-Schur functions as    Catalan and  Katalan functions, respectively. 
+      </p>
+    </div>
+  </div>
+</article>
